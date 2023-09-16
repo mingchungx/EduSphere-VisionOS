@@ -61,6 +61,11 @@ struct ContentView: View {
                 .tabItem {
                     Label("Learn", systemImage: "graduationcap")
                 }
+            
+            ChatbotView()
+                .tabItem {
+                    Label("Chatbot", systemImage: "text.bubble")
+                }
         }
     }
 }

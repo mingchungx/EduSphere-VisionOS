@@ -23,15 +23,34 @@ final class LearnViewModel: ObservableObject {
     
     func fetchRandomMod3D() async throws {
         let id = Int.random(in: start...end)
+        let parameters: Parameters = ["id": id]
         debugPrint("Fetching id: \(id)")
         
         // Get the Mod3D from CockroachDB backend
-        
-        
-        self.mod3D = Mod3D(
-            name: "PLACEHOLDER",
-            url: "https://storage.googleapis.com/edusphere/low_poly/arcade_low.usdz"
-        )
+        // Make GET request
+        AF.request("http://127.0.0.1:8000/api/item-from-id", parameters: parameters).responseData { response in
+            switch response.result {
+            case .success(let data):
+                // Process data on success
+                if let json = try? JSONSerialization.jsonObject(with: data, options: []), let jsonDict = json as? [String: Any] {
+                    let name = jsonDict["name"] as? String
+                    let url = jsonDict["url"] as? String
+
+                    // Access and use the extracted components as needed
+                    print("Name:", name ?? "")
+                    print("URL:", url ?? "")
+                    
+                    self.mod3D = Mod3D(name: name!, url: url!)
+                    
+                                        
+                }
+            case .failure(let error):
+                self.mod3D = Mod3D(
+                    name: "PLACEHOLDER",
+                    url: "https://storage.googleapis.com/edusphere/low_poly/arcade_low.usdz"
+                )
+            }
+        }
     }
     
     func fetchChoices() async throws {

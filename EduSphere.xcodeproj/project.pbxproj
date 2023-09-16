@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BD3DC1F52AB633EF008E3DB0 /* ChoiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3DC1F42AB633EF008E3DB0 /* ChoiceModel.swift */; };
 		BD3DC1F72AB63868008E3DB0 /* Mod3DModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3DC1F62AB63868008E3DB0 /* Mod3DModel.swift */; };
+		BD3DC1FD2AB63D1F008E3DB0 /* ChatbotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3DC1FC2AB63D1F008E3DB0 /* ChatbotView.swift */; };
 		BDD07EC92AB5F490001A3CAD /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = BDD07EC82AB5F490001A3CAD /* RealityKitContent */; };
 		BDD07ECB2AB5F490001A3CAD /* EduSphereApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD07ECA2AB5F490001A3CAD /* EduSphereApp.swift */; };
 		BDD07ECD2AB5F490001A3CAD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD07ECC2AB5F490001A3CAD /* ContentView.swift */; };
@@ -30,6 +31,8 @@
 /* Begin PBXFileReference section */
 		BD3DC1F42AB633EF008E3DB0 /* ChoiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceModel.swift; sourceTree = "<group>"; };
 		BD3DC1F62AB63868008E3DB0 /* Mod3DModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mod3DModel.swift; sourceTree = "<group>"; };
+		BD3DC1FC2AB63D1F008E3DB0 /* ChatbotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatbotView.swift; sourceTree = "<group>"; };
+		BD3DC1FE2AB643AC008E3DB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BDD07EC32AB5F490001A3CAD /* EduSphere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EduSphere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD07EC72AB5F490001A3CAD /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		BDD07ECA2AB5F490001A3CAD /* EduSphereApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EduSphereApp.swift; sourceTree = "<group>"; };
@@ -61,6 +64,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD3DC1F82AB63CE9008E3DB0 /* Chatbot */ = {
+			isa = PBXGroup;
+			children = (
+				BD3DC1FB2AB63CFA008E3DB0 /* Views */,
+				BD3DC1FA2AB63CF5008E3DB0 /* ViewModels */,
+				BD3DC1F92AB63CF1008E3DB0 /* Models */,
+			);
+			path = Chatbot;
+			sourceTree = "<group>";
+		};
+		BD3DC1F92AB63CF1008E3DB0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BD3DC1FA2AB63CF5008E3DB0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BD3DC1FB2AB63CFA008E3DB0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BD3DC1FC2AB63D1F008E3DB0 /* ChatbotView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		BDD07EBA2AB5F490001A3CAD = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +116,7 @@
 		BDD07EC52AB5F490001A3CAD /* EduSphere */ = {
 			isa = PBXGroup;
 			children = (
+				BD3DC1FE2AB643AC008E3DB0 /* Info.plist */,
 				BDD07ECA2AB5F490001A3CAD /* EduSphereApp.swift */,
 				BDD07ECC2AB5F490001A3CAD /* ContentView.swift */,
 				BDD07EF32AB5F93A001A3CAD /* Resources */,
@@ -118,6 +154,7 @@
 		BDD07EDD2AB5F4AB001A3CAD /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				BD3DC1F82AB63CE9008E3DB0 /* Chatbot */,
 				BDD07EDE2AB5F4B2001A3CAD /* Common */,
 				BDD07EE12AB5F4CB001A3CAD /* Learn */,
 				BDD07EE02AB5F4C8001A3CAD /* About */,
@@ -333,6 +370,7 @@
 				BD3DC1F52AB633EF008E3DB0 /* ChoiceModel.swift in Sources */,
 				BDD07EF92AB5FBE7001A3CAD /* LearnViewModel.swift in Sources */,
 				BDD07ECB2AB5F490001A3CAD /* EduSphereApp.swift in Sources */,
+				BD3DC1FD2AB63D1F008E3DB0 /* ChatbotView.swift in Sources */,
 				BDD07ECF2AB5F490001A3CAD /* ImmersiveView.swift in Sources */,
 				BDD07EFE2AB61245001A3CAD /* AboutInfo.swift in Sources */,
 				BDD07F002AB6159C001A3CAD /* LanguageManager.swift in Sources */,
@@ -472,6 +510,7 @@
 				DEVELOPMENT_TEAM = PLD5587GKY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EduSphere/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -498,6 +537,7 @@
 				DEVELOPMENT_TEAM = PLD5587GKY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EduSphere/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
