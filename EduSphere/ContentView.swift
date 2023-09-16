@@ -10,6 +10,8 @@ import RealityKit
 import RealityKitContent
 
 struct ContentView: View {
+    @ObservedObject var languageManager = LanguageManager.shared
+    
     var body: some View {
         content
             .glassBackgroundEffect()
@@ -31,9 +33,21 @@ struct ContentView: View {
                 .fontWeight(.bold)
                 .padding()
             Spacer()
+            Text(languageManager.language.uppercased())
+                .font(.callout)
+                .fontWeight(.bold)
+                .padding()
         }
         .padding(.horizontal)
         .padding(.top)
+    }
+    
+    var languagePicker: some View {
+        Picker("Language", selection: $languageManager.language) {
+            ForEach(Language.languages, id: \.self) { language in
+                Text(language)
+            }
+        }
     }
     
     var navigator: some View {

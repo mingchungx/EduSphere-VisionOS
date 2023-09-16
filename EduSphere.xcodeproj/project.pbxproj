@@ -19,6 +19,10 @@
 		BDD07EF52AB5F953001A3CAD /* Starfield.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BDD07EF42AB5F953001A3CAD /* Starfield.jpg */; };
 		BDD07EF72AB5FA17001A3CAD /* Chair.usdz in Resources */ = {isa = PBXBuildFile; fileRef = BDD07EF62AB5FA17001A3CAD /* Chair.usdz */; };
 		BDD07EF92AB5FBE7001A3CAD /* LearnViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD07EF82AB5FBE7001A3CAD /* LearnViewModel.swift */; };
+		BDD07EFC2AB61132001A3CAD /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BDD07EFB2AB61132001A3CAD /* Alamofire */; };
+		BDD07EFE2AB61245001A3CAD /* AboutInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD07EFD2AB61245001A3CAD /* AboutInfo.swift */; };
+		BDD07F002AB6159C001A3CAD /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD07EFF2AB6159C001A3CAD /* LanguageManager.swift */; };
+		BDD07F022AB6183C001A3CAD /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD07F012AB6183C001A3CAD /* Language.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +39,9 @@
 		BDD07EF42AB5F953001A3CAD /* Starfield.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Starfield.jpg; sourceTree = "<group>"; };
 		BDD07EF62AB5FA17001A3CAD /* Chair.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Chair.usdz; sourceTree = "<group>"; };
 		BDD07EF82AB5FBE7001A3CAD /* LearnViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnViewModel.swift; sourceTree = "<group>"; };
+		BDD07EFD2AB61245001A3CAD /* AboutInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutInfo.swift; sourceTree = "<group>"; };
+		BDD07EFF2AB6159C001A3CAD /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
+		BDD07F012AB6183C001A3CAD /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +50,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDD07EC92AB5F490001A3CAD /* RealityKitContent in Frameworks */,
+				BDD07EFC2AB61132001A3CAD /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +155,7 @@
 		BDD07EE22AB5F4E0001A3CAD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BDD07F012AB6183C001A3CAD /* Language.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -169,6 +178,7 @@
 		BDD07EE52AB5F4EB001A3CAD /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				BDD07EFF2AB6159C001A3CAD /* LanguageManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -199,6 +209,7 @@
 		BDD07EE92AB5F4FB001A3CAD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BDD07EFD2AB61245001A3CAD /* AboutInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -246,6 +257,7 @@
 			name = EduSphere;
 			packageProductDependencies = (
 				BDD07EC82AB5F490001A3CAD /* RealityKitContent */,
+				BDD07EFB2AB61132001A3CAD /* Alamofire */,
 			);
 			productName = EduSphere;
 			productReference = BDD07EC32AB5F490001A3CAD /* EduSphere.app */;
@@ -275,6 +287,9 @@
 				Base,
 			);
 			mainGroup = BDD07EBA2AB5F490001A3CAD;
+			packageReferences = (
+				BDD07EFA2AB61132001A3CAD /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = BDD07EC42AB5F490001A3CAD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -307,9 +322,12 @@
 				BDD07EF22AB5F537001A3CAD /* LearnView.swift in Sources */,
 				BDD07EF02AB5F531001A3CAD /* AboutView.swift in Sources */,
 				BDD07ECD2AB5F490001A3CAD /* ContentView.swift in Sources */,
+				BDD07F022AB6183C001A3CAD /* Language.swift in Sources */,
 				BDD07EF92AB5FBE7001A3CAD /* LearnViewModel.swift in Sources */,
 				BDD07ECB2AB5F490001A3CAD /* EduSphereApp.swift in Sources */,
 				BDD07ECF2AB5F490001A3CAD /* ImmersiveView.swift in Sources */,
+				BDD07EFE2AB61245001A3CAD /* AboutInfo.swift in Sources */,
+				BDD07F002AB6159C001A3CAD /* LanguageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,10 +528,26 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		BDD07EFA2AB61132001A3CAD /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		BDD07EC82AB5F490001A3CAD /* RealityKitContent */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RealityKitContent;
+		};
+		BDD07EFB2AB61132001A3CAD /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BDD07EFA2AB61132001A3CAD /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

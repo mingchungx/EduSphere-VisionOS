@@ -58,7 +58,6 @@ struct LearnView: View {
         Group {
             Text("Learn now by clicking play")
             Text("Highest score: \(highestScore)")
-            Text("Selected language: FRENCH")
         }
     }
     
@@ -87,7 +86,7 @@ extension LearnView {
     
     var itemModel: some View {
         // Asynchronous Model Retrieval
-        Model3D(url: URL(string: "https://storage.googleapis.com/edusphere/desk_chair_low.usdz")!) { model in
+        Model3D(url: URL(string: "https://storage.googleapis.com/edusphere/low_poly/arcade_low.usdz")!) { model in
             model
                 .resizable()
                 .scaledToFit()
@@ -107,8 +106,11 @@ extension LearnView {
                     .padding()
                 HStack {
                     Image(systemName: hearts >= 1 ? "heart.fill" : "heart")
+                        .foregroundStyle(Color.red)
                     Image(systemName: hearts >= 2 ? "heart.fill" : "heart")
+                        .foregroundStyle(Color.red)
                     Image(systemName: hearts >= 3 ? "heart.fill" : "heart")
+                        .foregroundStyle(Color.red)
                 }
             }
         }
