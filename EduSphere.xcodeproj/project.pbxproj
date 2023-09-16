@@ -14,6 +14,11 @@
 		BDD07ED12AB5F490001A3CAD /* ImageBasedLighting.skybox in Resources */ = {isa = PBXBuildFile; fileRef = BDD07ED02AB5F490001A3CAD /* ImageBasedLighting.skybox */; };
 		BDD07ED32AB5F492001A3CAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD07ED22AB5F492001A3CAD /* Assets.xcassets */; };
 		BDD07ED62AB5F492001A3CAD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD07ED52AB5F492001A3CAD /* Preview Assets.xcassets */; };
+		BDD07EF02AB5F531001A3CAD /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD07EEF2AB5F531001A3CAD /* AboutView.swift */; };
+		BDD07EF22AB5F537001A3CAD /* LearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD07EF12AB5F537001A3CAD /* LearnView.swift */; };
+		BDD07EF52AB5F953001A3CAD /* Starfield.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BDD07EF42AB5F953001A3CAD /* Starfield.jpg */; };
+		BDD07EF72AB5FA17001A3CAD /* Chair.usdz in Resources */ = {isa = PBXBuildFile; fileRef = BDD07EF62AB5FA17001A3CAD /* Chair.usdz */; };
+		BDD07EF92AB5FBE7001A3CAD /* LearnViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD07EF82AB5FBE7001A3CAD /* LearnViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +30,11 @@
 		BDD07ED02AB5F490001A3CAD /* ImageBasedLighting.skybox */ = {isa = PBXFileReference; lastKnownFileType = file.skybox; path = ImageBasedLighting.skybox; sourceTree = "<group>"; };
 		BDD07ED22AB5F492001A3CAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDD07ED52AB5F492001A3CAD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BDD07EEF2AB5F531001A3CAD /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		BDD07EF12AB5F537001A3CAD /* LearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnView.swift; sourceTree = "<group>"; };
+		BDD07EF42AB5F953001A3CAD /* Starfield.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Starfield.jpg; sourceTree = "<group>"; };
+		BDD07EF62AB5FA17001A3CAD /* Chair.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Chair.usdz; sourceTree = "<group>"; };
+		BDD07EF82AB5FBE7001A3CAD /* LearnViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,9 +71,9 @@
 			children = (
 				BDD07ECA2AB5F490001A3CAD /* EduSphereApp.swift */,
 				BDD07ECC2AB5F490001A3CAD /* ContentView.swift */,
-				BDD07ECE2AB5F490001A3CAD /* ImmersiveView.swift */,
+				BDD07EF32AB5F93A001A3CAD /* Resources */,
+				BDD07EDC2AB5F4A7001A3CAD /* Source */,
 				BDD07ED02AB5F490001A3CAD /* ImageBasedLighting.skybox */,
-				BDD07ED22AB5F492001A3CAD /* Assets.xcassets */,
 				BDD07ED42AB5F492001A3CAD /* Preview Content */,
 			);
 			path = EduSphere;
@@ -83,6 +93,139 @@
 				BDD07ED52AB5F492001A3CAD /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BDD07EDC2AB5F4A7001A3CAD /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				BDD07EDD2AB5F4AB001A3CAD /* Features */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		BDD07EDD2AB5F4AB001A3CAD /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				BDD07EDE2AB5F4B2001A3CAD /* Common */,
+				BDD07EE12AB5F4CB001A3CAD /* Learn */,
+				BDD07EE02AB5F4C8001A3CAD /* About */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		BDD07EDE2AB5F4B2001A3CAD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BDD07EE52AB5F4EB001A3CAD /* Managers */,
+				BDD07EE42AB5F4E7001A3CAD /* Views */,
+				BDD07EE32AB5F4E4001A3CAD /* ViewModels */,
+				BDD07EE22AB5F4E0001A3CAD /* Models */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		BDD07EE02AB5F4C8001A3CAD /* About */ = {
+			isa = PBXGroup;
+			children = (
+				BDD07EEB2AB5F501001A3CAD /* Views */,
+				BDD07EEA2AB5F4FE001A3CAD /* ViewModels */,
+				BDD07EE92AB5F4FB001A3CAD /* Models */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		BDD07EE12AB5F4CB001A3CAD /* Learn */ = {
+			isa = PBXGroup;
+			children = (
+				BDD07EE82AB5F4F7001A3CAD /* Views */,
+				BDD07EE72AB5F4F3001A3CAD /* ViewModels */,
+				BDD07EE62AB5F4EF001A3CAD /* Models */,
+			);
+			path = Learn;
+			sourceTree = "<group>";
+		};
+		BDD07EE22AB5F4E0001A3CAD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BDD07EE32AB5F4E4001A3CAD /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BDD07EE42AB5F4E7001A3CAD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BDD07ECE2AB5F490001A3CAD /* ImmersiveView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BDD07EE52AB5F4EB001A3CAD /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		BDD07EE62AB5F4EF001A3CAD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BDD07EE72AB5F4F3001A3CAD /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				BDD07EF82AB5FBE7001A3CAD /* LearnViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BDD07EE82AB5F4F7001A3CAD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BDD07EF12AB5F537001A3CAD /* LearnView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BDD07EE92AB5F4FB001A3CAD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BDD07EEA2AB5F4FE001A3CAD /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BDD07EEB2AB5F501001A3CAD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BDD07EEF2AB5F531001A3CAD /* AboutView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BDD07EF32AB5F93A001A3CAD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BDD07EF62AB5FA17001A3CAD /* Chair.usdz */,
+				BDD07EF42AB5F953001A3CAD /* Starfield.jpg */,
+				BDD07ED22AB5F492001A3CAD /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,7 +290,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDD07ED32AB5F492001A3CAD /* Assets.xcassets in Resources */,
+				BDD07EF72AB5FA17001A3CAD /* Chair.usdz in Resources */,
 				BDD07ED62AB5F492001A3CAD /* Preview Assets.xcassets in Resources */,
+				BDD07EF52AB5F953001A3CAD /* Starfield.jpg in Resources */,
 				BDD07ED12AB5F490001A3CAD /* ImageBasedLighting.skybox in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,7 +304,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDD07EF22AB5F537001A3CAD /* LearnView.swift in Sources */,
+				BDD07EF02AB5F531001A3CAD /* AboutView.swift in Sources */,
 				BDD07ECD2AB5F490001A3CAD /* ContentView.swift in Sources */,
+				BDD07EF92AB5FBE7001A3CAD /* LearnViewModel.swift in Sources */,
 				BDD07ECB2AB5F490001A3CAD /* EduSphereApp.swift in Sources */,
 				BDD07ECF2AB5F490001A3CAD /* ImmersiveView.swift in Sources */,
 			);

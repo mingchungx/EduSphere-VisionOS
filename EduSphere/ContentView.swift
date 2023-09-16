@@ -10,42 +10,43 @@ import RealityKit
 import RealityKitContent
 
 struct ContentView: View {
-
-    @State private var showImmersiveSpace = false
-    @State private var immersiveSpaceIsShown = false
-
-    @Environment(\.openImmersiveSpace) var openImmersiveSpace
-    @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
-
     var body: some View {
+        content
+            .glassBackgroundEffect()
+    }
+    
+    var content: some View {
         VStack {
-            Model3D(named: "Scene", bundle: realityKitContentBundle)
-                .padding(.bottom, 50)
-
-            Text("Hello, world!")
-
-            Toggle("Show ImmersiveSpace", isOn: $showImmersiveSpace)
-                .toggleStyle(.button)
-                .padding(.top, 50)
+            header
+            Divider()
+                .padding()
+            navigator
         }
-        .padding()
-        .onChange(of: showImmersiveSpace) { _, newValue in
-            Task {
-                if newValue {
-                    switch await openImmersiveSpace(id: "ImmersiveSpace") {
-                    case .opened:
-                        immersiveSpaceIsShown = true
-                    case .error, .userCancelled:
-                        fallthrough
-                    @unknown default:
-                        immersiveSpaceIsShown = false
-                        showImmersiveSpace = false
-                    }
-                } else if immersiveSpaceIsShown {
-                    await dismissImmersiveSpace()
-                    immersiveSpaceIsShown = false
+    }
+    
+    var header: some View {
+        HStack {
+            Text("EduSphere")
+                .font(.title)
+                .fontWeight(.bold)
+                .padding()
+            Spacer()
+        }
+        .padding(.horizontal)
+        .padding(.top)
+    }
+    
+    var navigator: some View {
+        TabView {
+            AboutView()
+                .tabItem {
+                    Label("About", systemImage: "info.circle")
                 }
-            }
+            
+            LearnView()
+                .tabItem {
+                    Label("Learn", systemImage: "graduationcap")
+                }
         }
     }
 }
