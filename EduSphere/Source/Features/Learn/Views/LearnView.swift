@@ -15,6 +15,7 @@ struct LearnView: View {
     @State private var hearts: Int = 5
     @State private var showImmersiveSpace = false
     @State private var immersiveSpaceIsShown = false
+    @State private var showSceneSpace = false
     
     @ObservedObject private var learnViewModel = LearnViewModel()
     
@@ -22,22 +23,25 @@ struct LearnView: View {
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     
     var body: some View {
+        // MARK: Only show immersive space during fill-in-bank
         content
             .onChange(of: showImmersiveSpace) { _, newValue in
                 Task {
-                    if newValue {
-                        switch await openImmersiveSpace(id: "ImmersiveSpace") {
-                        case .opened:
-                            immersiveSpaceIsShown = true
-                        case .error, .userCancelled:
-                            fallthrough
-                        @unknown default:
+                    if showSceneSpace {
+                        if newValue {
+                            switch await openImmersiveSpace(id: "ImmersiveSpace") {
+                            case .opened:
+                                immersiveSpaceIsShown = true
+                            case .error, .userCancelled:
+                                fallthrough
+                            @unknown default:
+                                immersiveSpaceIsShown = false
+                                showImmersiveSpace = false
+                            }
+                        } else if immersiveSpaceIsShown {
+                            await dismissImmersiveSpace()
                             immersiveSpaceIsShown = false
-                            showImmersiveSpace = false
                         }
-                    } else if immersiveSpaceIsShown {
-                        await dismissImmersiveSpace()
-                        immersiveSpaceIsShown = false
                     }
                 }
             }
@@ -46,34 +50,55 @@ struct LearnView: View {
     var content: some View {
         VStack {
             if !showImmersiveSpace {
-                header
+                edusphereLogo
+                largeTitle
+                playButton
             } else {
                 game
             }
-            playButton
+            Spacer()
+            if !showImmersiveSpace {
+                footer
+                Spacer()
+            }
         }
     }
     
-    var header: some View {
-        Group {
-            Text("Learn now by clicking play")
-            Text("Highest score: \(highestScore)")
-        }
+    var edusphereLogo: some View {
+        Image("EduSphere_logo")
+            .resizable()
+            .scaledToFit()
+            .frame(width: 200, height: 200)
+    }
+    
+    var largeTitle: some View {
+        Text("EduSphere")
+            .font(.extraLargeTitle)
+            .fontWeight(.semibold)
     }
     
     var playButton: some View {
-        Group {
-            if !showImmersiveSpace {
-                Button {
-                    highestScore = max(highestScore, score)
-                    score = 0
-                    hearts = 5
-                    showImmersiveSpace = true
-                } label: {
-                    Text("Play")
-                }
-            }
+        Button {
+            resetView()
+            showImmersiveSpace = true
+        } label: {
+            Image(systemName: "arrowtriangle.forward.fill")
+                .resizable()
+                .scaledToFit()
+                .padding(50)
+                .frame(width: 200, height: 200)
         }
+    }
+    
+    var footer: some View {
+        HStack {
+            Spacer()
+            Text("Highest Score: \(highestScore)")
+                .font(.callout)
+                .fontWeight(.semibold)
+                .opacity(0.7)
+        }
+        .padding(.horizontal)
     }
 }
 
@@ -87,7 +112,7 @@ extension LearnView {
             Spacer()
             translationChoices
             Spacer()
-            gameFooter
+            footer
             Spacer()
         }
         .onAppear {
@@ -149,23 +174,9 @@ extension LearnView {
         .padding()
         .onChange(of: hearts) {
             if hearts <= 0 {
-                highestScore = max(highestScore, score)
-                score = 0
-                hearts = 5
-                showImmersiveSpace.toggle()
+                resetView()
             }
         }
-    }
-    
-    var gameFooter: some View {
-        HStack {
-            Spacer()
-            Text("Highest Score: \(highestScore)")
-                .font(.callout)
-                .fontWeight(.semibold)
-                .opacity(0.7)
-        }
-        .padding(.horizontal)
     }
     
     @ViewBuilder
@@ -203,6 +214,13 @@ extension LearnView {
         await fetchChoices()
         
         debugPrint("Updated Game View")
+    }
+    
+    func resetView() {
+        highestScore = max(highestScore, score)
+        score = 0
+        hearts = 5
+        showImmersiveSpace = false
     }
     
     func fetchRandomMod3D() async {

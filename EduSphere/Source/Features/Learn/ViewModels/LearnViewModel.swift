@@ -44,7 +44,8 @@ final class LearnViewModel: ObservableObject {
                     
                                         
                 }
-            case .failure(let error):
+            case .failure(_):
+                // Ignore error case
                 self.mod3D = Mod3D(
                     name: "PLACEHOLDER",
                     url: "https://storage.googleapis.com/edusphere/low_poly/arcade_low.usdz"

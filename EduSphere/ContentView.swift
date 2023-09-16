@@ -33,10 +33,7 @@ struct ContentView: View {
                 .fontWeight(.bold)
                 .padding()
             Spacer()
-            Text(languageManager.language.uppercased())
-                .font(.callout)
-                .fontWeight(.bold)
-                .padding()
+            languagePicker
         }
         .padding(.horizontal)
         .padding(.top)
@@ -45,7 +42,7 @@ struct ContentView: View {
     var languagePicker: some View {
         Picker("Language", selection: $languageManager.language) {
             ForEach(Language.languages, id: \.self) { language in
-                Text(language)
+                Text(language.uppercased())
             }
         }
     }
