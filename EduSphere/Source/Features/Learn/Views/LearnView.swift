@@ -12,7 +12,7 @@ import RealityKit
 struct LearnView: View {
     @State private var highestScore: Int = 0
     @State private var score: Int = 0
-    @State private var hearts: Int = 3
+    @State private var hearts: Int = 5
     @State private var showImmersiveSpace = false
     @State private var immersiveSpaceIsShown = false
     
@@ -62,13 +62,17 @@ struct LearnView: View {
     }
     
     var playButton: some View {
-        Button {
-            highestScore = max(highestScore, score)
-            score = 0
-            hearts = 3
-            showImmersiveSpace.toggle()
-        } label: {
-            Text(showImmersiveSpace ? "Close" : "Play")
+        Group {
+            if !showImmersiveSpace {
+                Button {
+                    highestScore = max(highestScore, score)
+                    score = 0
+                    hearts = 5
+                    showImmersiveSpace = true
+                } label: {
+                    Text("Play")
+                }
+            }
         }
     }
 }
@@ -77,11 +81,42 @@ struct LearnView: View {
 extension LearnView {
     var game: some View {
         VStack {
-            // You can put models in their own directory as usdz or fetch from from a url
-            scoreHeader
+            gameHeader
+            Spacer()
             itemModel
+            Spacer()
             translationChoices
+            Spacer()
+            gameFooter
+            Spacer()
         }
+    }
+    
+    var gameHeader: some View {
+        HStack {
+            HStack {
+                Image(systemName: "arrow.left")
+                Button {
+                    showImmersiveSpace = false
+                } label: {
+                    Text("Quit")
+                }
+            }
+            Spacer()
+            VStack(alignment: .trailing) {
+                HStack {
+                    heart(1)
+                    heart(2)
+                    heart(3)
+                    heart(4)
+                    heart(5)
+                }
+                .padding(.vertical)
+                Text("Score: \(score)")
+            }
+        }
+        .padding(.horizontal)
+        .padding(.bottom)
     }
     
     var itemModel: some View {
@@ -96,42 +131,14 @@ extension LearnView {
         }
     }
     
-    var scoreHeader: some View {
-        Group {
-            Text("Highest Score: \(highestScore)")
-            HStack {
-                Text("Your Score: \(score)")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .padding()
-                HStack {
-                    Image(systemName: hearts >= 1 ? "heart.fill" : "heart")
-                        .foregroundStyle(Color.red)
-                    Image(systemName: hearts >= 2 ? "heart.fill" : "heart")
-                        .foregroundStyle(Color.red)
-                    Image(systemName: hearts >= 3 ? "heart.fill" : "heart")
-                        .foregroundStyle(Color.red)
-                }
-            }
-        }
-    }
-    
     var translationChoices: some View {
-        HStack(spacing: 50) {
-            Button {
-                score += 1
-            } label: {
-                Text("Le Chaise")
-            }
-            Button {
-                score += 1
-            } label: {
-                Text("La Chaise")
-            }
-            Button {
-                hearts -= 1
-            } label: {
-                Text("La Chair")
+        HStack(spacing: 70) {
+            ForEach(Choice.choices) { c in
+                choice(
+                    text: c.text,
+                    correct: c.correct,
+                    color: c.color
+                )
             }
         }
         .padding()
@@ -139,10 +146,45 @@ extension LearnView {
             if hearts <= 0 {
                 highestScore = max(highestScore, score)
                 score = 0
-                hearts = 3
+                hearts = 5
                 showImmersiveSpace.toggle()
             }
         }
+    }
+    
+    var gameFooter: some View {
+        HStack {
+            Spacer()
+            Text("Highest Score: \(highestScore)")
+                .font(.callout)
+                .fontWeight(.semibold)
+                .opacity(0.7)
+        }
+        .padding(.horizontal)
+    }
+    
+    @ViewBuilder
+    func heart(_ lowerBound: Int) -> some View {
+        Image(systemName: hearts >= lowerBound ? "heart.fill" : "heart")
+            .foregroundStyle(Color.red)
+            .shadow(radius: 2)
+    }
+    
+    @ViewBuilder
+    func choice(text: String, correct: Bool, color: Color) -> some View {
+        Button {
+            if correct {
+                score += 1
+            } else {
+                hearts -= 1
+            }
+        } label: {
+            Text(text)
+        }
+        .background(
+            color,
+            in: RoundedRectangle(cornerRadius: 20)
+        )
     }
 }
 
