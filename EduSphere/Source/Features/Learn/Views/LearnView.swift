@@ -90,6 +90,11 @@ extension LearnView {
             gameFooter
             Spacer()
         }
+        .onAppear {
+            Task {
+                await updateView()
+            }
+        }
     }
     
     var gameHeader: some View {
@@ -121,7 +126,7 @@ extension LearnView {
     
     var itemModel: some View {
         // Asynchronous Model Retrieval
-        Model3D(url: URL(string: "https://storage.googleapis.com/edusphere/low_poly/arcade_low.usdz")!) { model in
+        Model3D(url: URL(string: learnViewModel.mod3D.url)!) { model in
             model
                 .resizable()
                 .scaledToFit()
@@ -133,7 +138,7 @@ extension LearnView {
     
     var translationChoices: some View {
         HStack(spacing: 70) {
-            ForEach(Choice.choices) { c in
+            ForEach(learnViewModel.choices) { c in
                 choice(
                     text: c.text,
                     correct: c.correct,
@@ -173,10 +178,13 @@ extension LearnView {
     @ViewBuilder
     func choice(text: String, correct: Bool, color: Color) -> some View {
         Button {
-            if correct {
-                score += 1
-            } else {
-                hearts -= 1
+            Task {
+                if correct {
+                    score += 1
+                    await updateView()
+                } else {
+                    hearts -= 1
+                }
             }
         } label: {
             Text(text)
@@ -185,6 +193,24 @@ extension LearnView {
             color,
             in: RoundedRectangle(cornerRadius: 20)
         )
+    }
+}
+
+// MARK: Functions
+extension LearnView {
+    func updateView() async {
+        await fetchRandomMod3D()
+        await fetchChoices()
+        
+        debugPrint("Updated Game View")
+    }
+    
+    func fetchRandomMod3D() async {
+        try? await learnViewModel.fetchRandomMod3D()
+    }
+    
+    func fetchChoices() async {
+        try? await learnViewModel.fetchChoices()
     }
 }
 
