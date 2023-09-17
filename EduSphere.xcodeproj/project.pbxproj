@@ -219,9 +219,9 @@
 		BDD07EDD2AB5F4AB001A3CAD /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				BDD07EDE2AB5F4B2001A3CAD /* Common */,
 				BD3DC2102AB6EC0E008E3DB0 /* Practice */,
 				BD3DC1F82AB63CE9008E3DB0 /* Chatbot */,
-				BDD07EDE2AB5F4B2001A3CAD /* Common */,
 				BDD07EE12AB5F4CB001A3CAD /* Learn */,
 				BDD07EE02AB5F4C8001A3CAD /* About */,
 			);

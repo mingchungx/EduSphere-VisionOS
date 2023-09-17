@@ -12,6 +12,7 @@ struct PracticeView: View {
     @State private var text: String = ""
     @State private var showImmersiveSpace: Bool = false
     @State private var immersiveSpaceIsShown: Bool = false
+    @State private var loadingNext: Bool = false
     
     // ObservedObjects
     @ObservedObject private var practiceViewModel = PracticeViewModel()
@@ -41,26 +42,52 @@ struct PracticeView: View {
                     }
                 }
             }
-            .onAppear {
-                Task {
-                    await updateView()
-                    showImmersiveSpace = true
-                }
-            }
     }
     
     var content: some View {
         VStack {
-            refreshButton
-            Spacer()
-            fillInTheBank(text: practiceViewModel.currentImmersion.sentence)
-            textfield
+            if showImmersiveSpace {
+                // Game
+                gameHeader
+                Spacer()
+                fillInTheBank(text: practiceViewModel.currentImmersion.sentence)
+                textfield
+            } else if !showImmersiveSpace && loadingNext {
+                Spacer()
+                ProgressView()
+            } else {
+                playButton
+            }
             Spacer()
         }
     }
     
-    var refreshButton: some View {
+    var playButton: some View {
+        Button {
+            Task {
+                await practiceViewModel.initalizeImmersion(src: "english", dest: languageManager.language.lowercased())
+                showImmersiveSpace = true
+            }
+        } label: {
+            Image(systemName: "arrowtriangle.forward.fill")
+                .resizable()
+                .scaledToFit()
+                .padding(50)
+                .frame(width: 200, height: 200)
+        }
+    }
+}
+
+// MARK: Game
+extension PracticeView {
+    var gameHeader: some View {
         HStack {
+            Image(systemName: "arrow.left")
+            Button {
+                showImmersiveSpace = false
+            } label: {
+                Text("Quit")
+            }
             Spacer()
             Button {
                 Task {
@@ -70,12 +97,10 @@ struct PracticeView: View {
                 Image(systemName: "arrow.counterclockwise")
             }
         }
-        .padding()
+        .padding(.horizontal)
+        .padding(.vertical)
     }
-}
-
-// MARK: Game
-extension PracticeView {
+    
     @ViewBuilder
     func fillInTheBank(text: String) -> some View {
         Text(text)
@@ -113,12 +138,9 @@ extension PracticeView {
 
 // MARK: Functions
 extension PracticeView {
-    func updateView() async {
-        
-    }
-    
     func showNext() async {
         showImmersiveSpace = false
+        loadingNext = true
         await practiceViewModel.setNextImmersion(
             src: "english",
             dest: languageManager.language.lowercased()
@@ -127,6 +149,7 @@ extension PracticeView {
             text = ""
             Immersion.state = practiceViewModel.currentImmersion.assetName
             debugPrint(Immersion.state)
+            loadingNext = false
             showImmersiveSpace = true
         }
     }
@@ -140,6 +163,7 @@ extension PracticeView {
         } else {
             // Alter user it was wrong
         }
+        text = ""
     }
 }
 

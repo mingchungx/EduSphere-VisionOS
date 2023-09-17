@@ -13,6 +13,14 @@ final class PracticeViewModel: ObservableObject {
     @Published var currentImmersion: Immersion = Immersion.immersions[0]
     @Published var currentIndex: Int = 0
     
+    func initalizeImmersion(src: String, dest: String) async {
+        // This is called onAppear
+        // We have this function so that our first displayed immersion is translated
+        let first = Immersion.immersions[0]
+        await translateImmersion(immersion: first, src: src, dest: dest)
+        self.currentImmersion.assetName = first.assetName
+    }
+    
     func setNextImmersion(src: String, dest: String) async {
         let nextIndex = getNextPosition(index: self.currentIndex)
         self.currentIndex = nextIndex
