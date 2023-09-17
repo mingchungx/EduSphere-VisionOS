@@ -32,6 +32,7 @@ struct LearnView: View {
             if !showingGame {
                 edusphereLogo
                 largeTitle
+                description
                 playButton
             } else {
                 game
@@ -39,6 +40,7 @@ struct LearnView: View {
             Spacer()
             if !showingGame {
                 footer
+                    .padding(.vertical)
                 Spacer()
             }
         }
@@ -52,9 +54,14 @@ struct LearnView: View {
     }
     
     var largeTitle: some View {
-        Text("EduSphere")
+        Text("Learn")
             .font(.extraLargeTitle)
             .fontWeight(.semibold)
+    }
+    
+    var description: some View {
+        Text("See everyday 3D objects and learn to name them! However... 5 strikes and you're out!")
+            .padding()
     }
     
     var playButton: some View {

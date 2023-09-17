@@ -52,14 +52,45 @@ struct PracticeView: View {
                 Spacer()
                 fillInTheBank(text: practiceViewModel.currentImmersion.sentence)
                 textfield
+                Spacer()
             } else if !showImmersiveSpace && loadingNext {
                 Spacer()
                 ProgressView()
+                Spacer()
             } else {
+                edusphereLogo
+                largeTitle
+                description
                 playButton
+                Spacer()
+                HStack {
+                    Text("Spacer")
+                        .font(.callout)
+                        .fontWeight(.semibold)
+                        .opacity(0.7)
+                }
+                .padding()
+                .opacity(0)
             }
-            Spacer()
         }
+    }
+    
+    var edusphereLogo: some View {
+        Image("EduSphere_logo")
+            .resizable()
+            .scaledToFit()
+            .frame(width: 200, height: 200)
+    }
+    
+    var largeTitle: some View {
+        Text("Practice")
+            .font(.extraLargeTitle)
+            .fontWeight(.semibold)
+    }
+    
+    var description: some View {
+        Text("Go into virtual reality and explore your surrounds, discovering new words to describe your location!")
+            .padding()
     }
     
     var playButton: some View {
