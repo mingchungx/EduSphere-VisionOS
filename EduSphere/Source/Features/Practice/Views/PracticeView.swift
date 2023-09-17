@@ -15,6 +15,7 @@ struct PracticeView: View {
     
     // ObservedObjects
     @ObservedObject private var practiceViewModel = PracticeViewModel()
+    @ObservedObject private var languageManager = LanguageManager.shared
     
     // Environment Variables
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
@@ -40,13 +41,19 @@ struct PracticeView: View {
                     }
                 }
             }
+            .onAppear {
+                Task {
+                    await updateView()
+                    showImmersiveSpace = true
+                }
+            }
     }
     
     var content: some View {
         VStack {
             refreshButton
             Spacer()
-            fillInTheBank(text: "Look, we are at the ___.")
+            fillInTheBank(text: practiceViewModel.currentImmersion.sentence)
             textfield
             Spacer()
         }
@@ -56,7 +63,17 @@ struct PracticeView: View {
         HStack {
             Spacer()
             Button {
-                
+                Task {
+                    showImmersiveSpace = false
+                    await practiceViewModel.setNextImmersion(
+                        src: "english",
+                        dest: languageManager.language.lowercased()
+                    )
+                    text = ""
+                    Immersion.state = practiceViewModel.currentImmersion.assetName
+                    debugPrint(Immersion.state)
+                    showImmersiveSpace = true
+                }
             } label: {
                 Image(systemName: "arrow.counterclockwise")
             }
@@ -79,11 +96,11 @@ extension PracticeView {
         HStack {
             TextField("Fill in the blank...", text: $text)
                 .foregroundStyle(Color.white)
-            Button {
-                Task {
-                    // Action
-                    text = ""
+                .onSubmit {
+                    submitAns()
                 }
+            Button {
+                submitAns()
             } label: {
                 Image(systemName: "rectangle.and.pencil.and.ellipsis")
             }
@@ -95,6 +112,24 @@ extension PracticeView {
         )
         .padding()
         .shadow(radius: 3)
+    }
+}
+
+// MARK: Functions
+extension PracticeView {
+    func updateView() async {
+        
+    }
+    
+    private func submitAns() {
+        if practiceViewModel.checkCorrect(
+            input: text,
+            ans: practiceViewModel.currentImmersion.missingWord
+        ) {
+            
+        } else {
+            
+        }
     }
 }
 

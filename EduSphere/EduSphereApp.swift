@@ -15,7 +15,7 @@ struct EduSphereApp: App {
         }
 
         ImmersiveSpace(id: "ImmersiveSpace") {
-            ImmersiveView(immersiveSceneResource: Immersion.state)
+            ImmersiveView()
         }
         .immersionStyle(selection: .constant(.full), in: .full)
     }

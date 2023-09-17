@@ -139,6 +139,7 @@
 		BD3DC2112AB6EC2C008E3DB0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BD3DC2042AB67C97008E3DB0 /* ImmersionModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -294,7 +295,6 @@
 			children = (
 				BD3DC1F42AB633EF008E3DB0 /* ChoiceModel.swift */,
 				BD3DC1F62AB63868008E3DB0 /* Mod3DModel.swift */,
-				BD3DC2042AB67C97008E3DB0 /* ImmersionModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

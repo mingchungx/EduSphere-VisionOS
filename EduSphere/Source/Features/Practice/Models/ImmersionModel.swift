@@ -17,7 +17,7 @@ struct Immersion: Identifiable {
 
 extension Immersion {
     static var state: String = {
-        "Starfield Scene"
+        "StarfieldScene"
     }()
     
     static let immersions: [Immersion] = {[
@@ -26,12 +26,5 @@ extension Immersion {
         Immersion(missingWord: "desert", assetName: "DesertScene", sentence: "It is too hot, because this is the ___."), // It is too hot, because this is the DESERT.
         Immersion(missingWord: "church", assetName: "ChurchScene", sentence: "Be quiet, we are in a ___."), // Be quiet, we are in a CHURCH.
         Immersion(missingWord: "park", assetName: "ParkScene", sentence: "The weather is nice at the ___.")//, // The weather is nice at the PARK.
-        /*
-        Immersion(missingWord: <#T##String#>, assetName: <#T##String#>),
-        Immersion(missingWord: <#T##String#>, assetName: <#T##String#>),
-        Immersion(missingWord: <#T##String#>, assetName: <#T##String#>),
-        Immersion(missingWord: <#T##String#>, assetName: <#T##String#>),
-        Immersion(missingWord: <#T##String#>, assetName: <#T##String#>)
-         */
     ]}()
 }

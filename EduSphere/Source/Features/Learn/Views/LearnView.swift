@@ -14,9 +14,7 @@ struct LearnView: View {
     @State private var highestScore: Int = 0
     @State private var score: Int = 0
     @State private var hearts: Int = 5
-    @State private var showImmersiveSpace: Bool = false
-    @State private var immersiveSpaceIsShown: Bool = false
-    @State private var showSceneSpace: Bool = false
+    @State private var showingGame: Bool = false
     @State private var loading: Bool = false
     @State private var text: String = ""
     @State private var gameType: String = "MC"
@@ -25,38 +23,13 @@ struct LearnView: View {
     @ObservedObject private var learnViewModel = LearnViewModel()
     @ObservedObject private var languageManager = LanguageManager.shared
     
-    // Environment Variables
-    @Environment(\.openImmersiveSpace) var openImmersiveSpace
-    @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
-    
     var body: some View {
-        // MARK: Only show immersive space during fill-in-bank
         content
-            .onChange(of: showImmersiveSpace) { _, newValue in
-                Task {
-                    if showSceneSpace {
-                        if newValue {
-                            switch await openImmersiveSpace(id: "ImmersiveSpace") {
-                            case .opened:
-                                immersiveSpaceIsShown = true
-                            case .error, .userCancelled:
-                                fallthrough
-                            @unknown default:
-                                immersiveSpaceIsShown = false
-                                showImmersiveSpace = false
-                            }
-                        } else if immersiveSpaceIsShown {
-                            await dismissImmersiveSpace()
-                            immersiveSpaceIsShown = false
-                        }
-                    }
-                }
-            }
     }
     
     var content: some View {
         VStack {
-            if !showImmersiveSpace {
+            if !showingGame {
                 edusphereLogo
                 largeTitle
                 playButton
@@ -64,7 +37,7 @@ struct LearnView: View {
                 game
             }
             Spacer()
-            if !showImmersiveSpace {
+            if !showingGame {
                 footer
                 Spacer()
             }
@@ -87,7 +60,7 @@ struct LearnView: View {
     var playButton: some View {
         Button {
             resetView()
-            showImmersiveSpace = true
+            showingGame = true
         } label: {
             Image(systemName: "arrowtriangle.forward.fill")
                 .resizable()
@@ -136,8 +109,7 @@ extension LearnView {
                     Task {
                         if learnViewModel.checkCorrectBlank(text: text) {
                             score += 1
-                            showSceneSpace = false
-                            showImmersiveSpace = false
+                            // showingGame = false
                             chooseGameType()
                         } else {
                             hearts -= 1
@@ -171,7 +143,7 @@ extension LearnView {
             HStack {
                 Image(systemName: "arrow.left")
                 Button {
-                    showImmersiveSpace = false
+                    showingGame = false
                 } label: {
                     Text("Quit")
                 }
@@ -239,7 +211,7 @@ extension LearnView {
                 if correct {
                     score += 1
                     await updateMC()
-                    chooseGameType()
+                    // chooseGameType()
                 } else {
                     hearts -= 1
                 }
@@ -270,8 +242,7 @@ extension LearnView {
     // Updates fill in the bank
     func updateFIB() async {
         loading.toggle()
-        showSceneSpace = true
-        showImmersiveSpace = true
+        showingGame = true
         
         await learnViewModel.getImmersiveScene(src: "english", dest: languageManager.language.lowercased())
         Immersion.state = learnViewModel.immersiveScene.assetName
@@ -283,7 +254,7 @@ extension LearnView {
         highestScore = max(highestScore, score)
         score = 0
         hearts = 5
-        showImmersiveSpace = false
+        showingGame = false
     }
     
     func fetchRandomMod3D() async {

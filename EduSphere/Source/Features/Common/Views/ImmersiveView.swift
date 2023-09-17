@@ -10,12 +10,10 @@ import RealityKit
 import RealityKitContent
 
 struct ImmersiveView: View {
-    var immersiveSceneResource: String
-    
     var body: some View {
         RealityView { content in
             // Create a material with a star field on it.
-            guard let url = Bundle.main.url(forResource: immersiveSceneResource, withExtension: "jpg"),
+            guard let url = Bundle.main.url(forResource: Immersion.state, withExtension: "jpg"),
                               let resource = try? await TextureResource(contentsOf: url) else {
                 // If the asset isn't available, something is wrong with the app.
                 fatalError("Unable to load starfield texture.")
@@ -39,6 +37,6 @@ struct ImmersiveView: View {
 }
 
 #Preview {
-    ImmersiveView(immersiveSceneResource: "Starfield")
+    ImmersiveView()
         .previewLayout(.sizeThatFits)
 }
