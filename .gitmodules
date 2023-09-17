@@ -1,0 +1,9 @@
+[submodule "EduSphere-Flask"]
+	path = EduSphere-Flask
+	url = https://github.com/LukeWang2/EduSphere-Flask
+[submodule "Backend-Microservices/EduSphere-Flask"]
+	path = Backend-Microservices/EduSphere-Flask
+	url = https://github.com/LukeWang2/EduSphere-Flask
+[submodule "Backend-Microservices/EduSphere"]
+	path = Backend-Microservices/EduSphere
+	url = https://github.com/evinli/EduSphere
