@@ -10,17 +10,22 @@ import RealityKit
 
 // MARK: Main
 struct LearnView: View {
+    // State Variables
     @State private var highestScore: Int = 0
     @State private var score: Int = 0
     @State private var hearts: Int = 5
-    @State private var showImmersiveSpace = false
-    @State private var immersiveSpaceIsShown = false
-    @State private var showSceneSpace = false
-    @State private var loading = false
+    @State private var showImmersiveSpace: Bool = false
+    @State private var immersiveSpaceIsShown: Bool = false
+    @State private var showSceneSpace: Bool = false
+    @State private var loading: Bool = false
+    @State private var text: String = ""
+    @State private var gameType: String = "MC"
     
+    // ObservedObjects
     @ObservedObject private var learnViewModel = LearnViewModel()
     @ObservedObject private var languageManager = LanguageManager.shared
     
+    // Environment Variables
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     
@@ -113,17 +118,50 @@ extension LearnView {
             if loading {
                 ProgressView()
             } else {
-                translationChoices
-                Spacer()
-                itemModel
+                multipleChoice
             }
             Spacer()
             footer
             Spacer()
         }
+    }
+    
+    // Game style 1: fill in the blank
+    var fillInTheBlank: some View {
+        Group {
+            Text(learnViewModel.immersiveScene.sentence)
+            TextField("Missing Word", text: $text)
+                .keyboardType(.default)
+                .onSubmit {
+                    Task {
+                        if learnViewModel.checkCorrectBlank(text: text) {
+                            score += 1
+                            showSceneSpace = false
+                            showImmersiveSpace = false
+                            chooseGameType()
+                        } else {
+                            hearts -= 1
+                        }
+                    }
+                }
+        }
         .onAppear {
             Task {
-                await updateView()
+                await updateFIB()
+            }
+        }
+    }
+    
+    // Game style 2: multiple choice
+    var multipleChoice: some View {
+        Group {
+            translationChoices
+            Spacer()
+            itemModel
+        }
+        .onAppear {
+            Task {
+                await updateMC()
             }
         }
     }
@@ -200,7 +238,8 @@ extension LearnView {
             Task {
                 if correct {
                     score += 1
-                    await updateView()
+                    await updateMC()
+                    chooseGameType()
                 } else {
                     hearts -= 1
                 }
@@ -219,11 +258,24 @@ extension LearnView {
 
 // MARK: Functions
 extension LearnView {
-    func updateView() async {
+    // Updates multiple choice
+    func updateMC() async {
         loading.toggle()
         await fetchRandomMod3D()
         // await fetchChoices()
         debugPrint("Updated Game View")
+        loading.toggle()
+    }
+    
+    // Updates fill in the bank
+    func updateFIB() async {
+        loading.toggle()
+        showSceneSpace = true
+        showImmersiveSpace = true
+        
+        await learnViewModel.getImmersiveScene(src: "english", dest: languageManager.language.lowercased())
+        Immersion.state = learnViewModel.immersiveScene.assetName
+        
         loading.toggle()
     }
     
@@ -239,6 +291,16 @@ extension LearnView {
             src: "english",
             dest: languageManager.language.lowercased()
         )
+    }
+    
+    private func chooseGameType() {
+        let ran = Int.random(in: 1...2)
+        if (ran == 1) {
+            gameType = "MC"
+        } else {
+            gameType = "FIB"
+        }
+        debugPrint("Next game: \(gameType)")
     }
 }
 

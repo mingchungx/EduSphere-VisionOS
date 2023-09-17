@@ -12,6 +12,12 @@
 		BD3DC1FD2AB63D1F008E3DB0 /* ChatbotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3DC1FC2AB63D1F008E3DB0 /* ChatbotView.swift */; };
 		BD3DC2012AB65FF8008E3DB0 /* WordCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3DC2002AB65FF8008E3DB0 /* WordCollection.swift */; };
 		BD3DC2032AB660D3008E3DB0 /* WordDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3DC2022AB660D3008E3DB0 /* WordDecoder.swift */; };
+		BD3DC2052AB67C97008E3DB0 /* ImmersionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3DC2042AB67C97008E3DB0 /* ImmersionModel.swift */; };
+		BD3DC2072AB67DA5008E3DB0 /* DockScene.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BD3DC2062AB67DA5008E3DB0 /* DockScene.jpg */; };
+		BD3DC2092AB67DB2008E3DB0 /* DesertScene.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BD3DC2082AB67DB2008E3DB0 /* DesertScene.jpg */; };
+		BD3DC20B2AB67E31008E3DB0 /* ChurchScene.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BD3DC20A2AB67E31008E3DB0 /* ChurchScene.jpg */; };
+		BD3DC20D2AB67E76008E3DB0 /* ParkScene.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BD3DC20C2AB67E75008E3DB0 /* ParkScene.jpg */; };
+		BD3DC20F2AB68D69008E3DB0 /* ChatbotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3DC20E2AB68D69008E3DB0 /* ChatbotViewModel.swift */; };
 		BDD07EC92AB5F490001A3CAD /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = BDD07EC82AB5F490001A3CAD /* RealityKitContent */; };
 		BDD07ECB2AB5F490001A3CAD /* EduSphereApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD07ECA2AB5F490001A3CAD /* EduSphereApp.swift */; };
 		BDD07ECD2AB5F490001A3CAD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD07ECC2AB5F490001A3CAD /* ContentView.swift */; };
@@ -21,7 +27,7 @@
 		BDD07ED62AB5F492001A3CAD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD07ED52AB5F492001A3CAD /* Preview Assets.xcassets */; };
 		BDD07EF02AB5F531001A3CAD /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD07EEF2AB5F531001A3CAD /* AboutView.swift */; };
 		BDD07EF22AB5F537001A3CAD /* LearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD07EF12AB5F537001A3CAD /* LearnView.swift */; };
-		BDD07EF52AB5F953001A3CAD /* Starfield.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BDD07EF42AB5F953001A3CAD /* Starfield.jpg */; };
+		BDD07EF52AB5F953001A3CAD /* StarfieldScene.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BDD07EF42AB5F953001A3CAD /* StarfieldScene.jpg */; };
 		BDD07EF72AB5FA17001A3CAD /* Chair.usdz in Resources */ = {isa = PBXBuildFile; fileRef = BDD07EF62AB5FA17001A3CAD /* Chair.usdz */; };
 		BDD07EF92AB5FBE7001A3CAD /* LearnViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD07EF82AB5FBE7001A3CAD /* LearnViewModel.swift */; };
 		BDD07EFC2AB61132001A3CAD /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BDD07EFB2AB61132001A3CAD /* Alamofire */; };
@@ -37,6 +43,12 @@
 		BD3DC1FE2AB643AC008E3DB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BD3DC2002AB65FF8008E3DB0 /* WordCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCollection.swift; sourceTree = "<group>"; };
 		BD3DC2022AB660D3008E3DB0 /* WordDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDecoder.swift; sourceTree = "<group>"; };
+		BD3DC2042AB67C97008E3DB0 /* ImmersionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersionModel.swift; sourceTree = "<group>"; };
+		BD3DC2062AB67DA5008E3DB0 /* DockScene.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DockScene.jpg; sourceTree = "<group>"; };
+		BD3DC2082AB67DB2008E3DB0 /* DesertScene.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DesertScene.jpg; sourceTree = "<group>"; };
+		BD3DC20A2AB67E31008E3DB0 /* ChurchScene.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ChurchScene.jpg; sourceTree = "<group>"; };
+		BD3DC20C2AB67E75008E3DB0 /* ParkScene.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ParkScene.jpg; sourceTree = "<group>"; };
+		BD3DC20E2AB68D69008E3DB0 /* ChatbotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatbotViewModel.swift; sourceTree = "<group>"; };
 		BDD07EC32AB5F490001A3CAD /* EduSphere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EduSphere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD07EC72AB5F490001A3CAD /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		BDD07ECA2AB5F490001A3CAD /* EduSphereApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EduSphereApp.swift; sourceTree = "<group>"; };
@@ -47,7 +59,7 @@
 		BDD07ED52AB5F492001A3CAD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BDD07EEF2AB5F531001A3CAD /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		BDD07EF12AB5F537001A3CAD /* LearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnView.swift; sourceTree = "<group>"; };
-		BDD07EF42AB5F953001A3CAD /* Starfield.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Starfield.jpg; sourceTree = "<group>"; };
+		BDD07EF42AB5F953001A3CAD /* StarfieldScene.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = StarfieldScene.jpg; sourceTree = "<group>"; };
 		BDD07EF62AB5FA17001A3CAD /* Chair.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Chair.usdz; sourceTree = "<group>"; };
 		BDD07EF82AB5FBE7001A3CAD /* LearnViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnViewModel.swift; sourceTree = "<group>"; };
 		BDD07EFD2AB61245001A3CAD /* AboutInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutInfo.swift; sourceTree = "<group>"; };
@@ -88,6 +100,7 @@
 		BD3DC1FA2AB63CF5008E3DB0 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				BD3DC20E2AB68D69008E3DB0 /* ChatbotViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -243,6 +256,7 @@
 			children = (
 				BD3DC1F42AB633EF008E3DB0 /* ChoiceModel.swift */,
 				BD3DC1F62AB63868008E3DB0 /* Mod3DModel.swift */,
+				BD3DC2042AB67C97008E3DB0 /* ImmersionModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -290,7 +304,11 @@
 			isa = PBXGroup;
 			children = (
 				BDD07EF62AB5FA17001A3CAD /* Chair.usdz */,
-				BDD07EF42AB5F953001A3CAD /* Starfield.jpg */,
+				BDD07EF42AB5F953001A3CAD /* StarfieldScene.jpg */,
+				BD3DC2062AB67DA5008E3DB0 /* DockScene.jpg */,
+				BD3DC20A2AB67E31008E3DB0 /* ChurchScene.jpg */,
+				BD3DC20C2AB67E75008E3DB0 /* ParkScene.jpg */,
+				BD3DC2082AB67DB2008E3DB0 /* DesertScene.jpg */,
 				BDD07ED22AB5F492001A3CAD /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -362,9 +380,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDD07ED32AB5F492001A3CAD /* Assets.xcassets in Resources */,
+				BD3DC20D2AB67E76008E3DB0 /* ParkScene.jpg in Resources */,
+				BD3DC20B2AB67E31008E3DB0 /* ChurchScene.jpg in Resources */,
+				BD3DC2092AB67DB2008E3DB0 /* DesertScene.jpg in Resources */,
 				BDD07EF72AB5FA17001A3CAD /* Chair.usdz in Resources */,
 				BDD07ED62AB5F492001A3CAD /* Preview Assets.xcassets in Resources */,
-				BDD07EF52AB5F953001A3CAD /* Starfield.jpg in Resources */,
+				BD3DC2072AB67DA5008E3DB0 /* DockScene.jpg in Resources */,
+				BDD07EF52AB5F953001A3CAD /* StarfieldScene.jpg in Resources */,
 				BDD07ED12AB5F490001A3CAD /* ImageBasedLighting.skybox in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,9 +400,11 @@
 			files = (
 				BDD07EF22AB5F537001A3CAD /* LearnView.swift in Sources */,
 				BD3DC1F72AB63868008E3DB0 /* Mod3DModel.swift in Sources */,
+				BD3DC20F2AB68D69008E3DB0 /* ChatbotViewModel.swift in Sources */,
 				BDD07EF02AB5F531001A3CAD /* AboutView.swift in Sources */,
 				BDD07ECD2AB5F490001A3CAD /* ContentView.swift in Sources */,
 				BDD07F022AB6183C001A3CAD /* Language.swift in Sources */,
+				BD3DC2052AB67C97008E3DB0 /* ImmersionModel.swift in Sources */,
 				BD3DC1F52AB633EF008E3DB0 /* ChoiceModel.swift in Sources */,
 				BDD07EF92AB5FBE7001A3CAD /* LearnViewModel.swift in Sources */,
 				BDD07ECB2AB5F490001A3CAD /* EduSphereApp.swift in Sources */,

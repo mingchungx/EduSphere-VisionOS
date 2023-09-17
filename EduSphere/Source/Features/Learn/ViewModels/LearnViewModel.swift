@@ -22,6 +22,12 @@ final class LearnViewModel: ObservableObject {
         Choice(text: "", correct: false, color: Color.yellow)
     ]
     
+    @Published var immersiveScene: Immersion = Immersion(
+        missingWord: "space",
+        assetName: "StarfieldScene",
+        sentence: "I am in ___."
+    )
+    
     private let start = 0
     private let end = 176
     
@@ -142,5 +148,49 @@ final class LearnViewModel: ObservableObject {
         let n = WordCollection.random.count
         let wordIndices = (Int.random(in: 0...n-1), Int.random(in: 0...n-1))
         return (WordCollection.random[wordIndices.0], WordCollection.random[wordIndices.1])
+    }
+    
+    private func returnTranslation(text: String, src: String, dest: String) async -> String {
+        let endpoint = "http://127.0.0.1:5000/translate"
+        let parameters: Parameters = [
+            "word": text,
+            "src": src,
+            "dest": dest
+        ]
+        
+        return await withCheckedContinuation { continuation in
+            AF.request(endpoint, parameters: parameters).responseData { response in
+                switch response.result {
+                case .success(let data):
+                    // Process data on success
+                    if let string = String(data: data, encoding: .utf8) {
+                        continuation.resume(returning: string.capitalized)
+                    }
+                case .failure(_):
+                    // Ignore error case
+                    continuation.resume(returning: "")
+                }
+            }
+        }
+    }
+    
+    func getImmersiveScene(src: String, dest: String) async {
+        let sceneId = Int.random(in: 0...4) // MARK: Change to 10
+        let immersion = Immersion.immersions[sceneId]
+        
+        // Get the translations
+        let translation = await self.returnTranslation(text: immersion.sentence, src: src, dest: dest)
+        
+        let missingWord = await self.returnTranslation(text: immersion.missingWord, src: src, dest: dest)
+        
+        self.immersiveScene = Immersion(
+            missingWord: missingWord,
+            assetName: immersion.assetName,
+            sentence: translation
+        )
+    }
+    
+    func checkCorrectBlank(text: String) -> Bool {
+        return text == self.immersiveScene.missingWord
     }
 }
