@@ -1,4 +1,4 @@
-# EduSphere
+# EduSphere-VisionOS
 
 ## Description
 
@@ -9,7 +9,7 @@ EduSphere is a VisionOS application built for the Apple Vision Pro, built in 36 
 EduSphere is free to clone and use. Feel free to download and explore the source code by following the commands below:
 
 ```
-git clone https://github.com/mingchungx/EduSphere.git
+git clone https://github.com/mingchungx/EduSphere-VisionOS.git
 ```
 
 ## Authors
