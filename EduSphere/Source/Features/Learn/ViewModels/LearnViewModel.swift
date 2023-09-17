@@ -96,8 +96,13 @@ final class LearnViewModel: ObservableObject {
             switch response.result {
             case .success(let data):
                 // Process data on success
-                if let string = String(data: data, encoding: .utf8) {
-                    self.choices[0] = Choice(text: string.capitalized, correct: false, color: Color.red)
+                if let json = try? JSONSerialization.jsonObject(with: data, options: []), let jsonDict = json as? [String: Any] {
+                    let translation = jsonDict["translation"] as? String
+
+                    // Access and use the extracted components as needed
+                    print("Translation:", translation ?? "")
+                    
+                    self.choices[0] = Choice(text: translation?.capitalized ?? "", correct: false, color: Color.red)
                 }
             case .failure(_):
                 // Ignore error case
@@ -113,8 +118,13 @@ final class LearnViewModel: ObservableObject {
             switch response.result {
             case .success(let data):
                 // Process data on success
-                if let string = String(data: data, encoding: .utf8) {
-                    self.choices[1] = Choice(text: string.capitalized, correct: false, color: Color.blue)
+                if let json = try? JSONSerialization.jsonObject(with: data, options: []), let jsonDict = json as? [String: Any] {
+                    let translation = jsonDict["translation"] as? String
+
+                    // Access and use the extracted components as needed
+                    print("Translation:", translation ?? "")
+                    
+                    self.choices[1] = Choice(text: translation?.capitalized ?? "", correct: false, color: Color.blue)
                 }
             case .failure(_):
                 // Ignore error case
@@ -130,8 +140,13 @@ final class LearnViewModel: ObservableObject {
             switch response.result {
             case .success(let data):
                 // Process data on success
-                if let string = String(data: data, encoding: .utf8) {
-                    self.choices[2] = Choice(text: string.capitalized, correct: true, color: Color.yellow)
+                if let json = try? JSONSerialization.jsonObject(with: data, options: []), let jsonDict = json as? [String: Any] {
+                    let translation = jsonDict["translation"] as? String
+
+                    // Access and use the extracted components as needed
+                    print("Translation:", translation ?? "")
+                    
+                    self.choices[2] = Choice(text: translation?.capitalized ?? "", correct: true, color: Color.yellow)
                 }
             case .failure(_):
                 // Ignore error case

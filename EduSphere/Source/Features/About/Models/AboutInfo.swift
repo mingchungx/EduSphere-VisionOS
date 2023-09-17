@@ -16,6 +16,6 @@ extension AboutInfo {
         "About"
     }()
     static let body: String = {
-        "A new way to learn language new way to learn language new way to learn language new way to learn language new way to learn language new way to learn language new way to learn language new way to learn language new way to learn language v new way to learn language new way to learn language"
+        "EduSphere is an interactive language learning app designed to provide a unique language learning experience. EduSphere includes many games: Multiple choice and a Chatbot. \n\nMultiple choice presents a 3d model of an object and three options to choose from. Be careful, too many wrong choices will end the game! \n\nThe chatbot allows the ability to practice writing any language with real time responses. \n\nChange the language of your game in the top right selector."
     }()
 }
