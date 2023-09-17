@@ -18,6 +18,8 @@
 		BD3DC20B2AB67E31008E3DB0 /* ChurchScene.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BD3DC20A2AB67E31008E3DB0 /* ChurchScene.jpg */; };
 		BD3DC20D2AB67E76008E3DB0 /* ParkScene.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BD3DC20C2AB67E75008E3DB0 /* ParkScene.jpg */; };
 		BD3DC20F2AB68D69008E3DB0 /* ChatbotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3DC20E2AB68D69008E3DB0 /* ChatbotViewModel.swift */; };
+		BD3DC2152AB6EC3E008E3DB0 /* PracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3DC2142AB6EC3E008E3DB0 /* PracticeView.swift */; };
+		BD3DC2172AB6EC48008E3DB0 /* PracticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3DC2162AB6EC48008E3DB0 /* PracticeViewModel.swift */; };
 		BDD07EC92AB5F490001A3CAD /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = BDD07EC82AB5F490001A3CAD /* RealityKitContent */; };
 		BDD07ECB2AB5F490001A3CAD /* EduSphereApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD07ECA2AB5F490001A3CAD /* EduSphereApp.swift */; };
 		BDD07ECD2AB5F490001A3CAD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD07ECC2AB5F490001A3CAD /* ContentView.swift */; };
@@ -49,6 +51,8 @@
 		BD3DC20A2AB67E31008E3DB0 /* ChurchScene.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ChurchScene.jpg; sourceTree = "<group>"; };
 		BD3DC20C2AB67E75008E3DB0 /* ParkScene.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ParkScene.jpg; sourceTree = "<group>"; };
 		BD3DC20E2AB68D69008E3DB0 /* ChatbotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatbotViewModel.swift; sourceTree = "<group>"; };
+		BD3DC2142AB6EC3E008E3DB0 /* PracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeView.swift; sourceTree = "<group>"; };
+		BD3DC2162AB6EC48008E3DB0 /* PracticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewModel.swift; sourceTree = "<group>"; };
 		BDD07EC32AB5F490001A3CAD /* EduSphere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EduSphere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD07EC72AB5F490001A3CAD /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		BDD07ECA2AB5F490001A3CAD /* EduSphereApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EduSphereApp.swift; sourceTree = "<group>"; };
@@ -122,6 +126,39 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
+		BD3DC2102AB6EC0E008E3DB0 /* Practice */ = {
+			isa = PBXGroup;
+			children = (
+				BD3DC2132AB6EC35008E3DB0 /* Views */,
+				BD3DC2122AB6EC2F008E3DB0 /* ViewModels */,
+				BD3DC2112AB6EC2C008E3DB0 /* Models */,
+			);
+			path = Practice;
+			sourceTree = "<group>";
+		};
+		BD3DC2112AB6EC2C008E3DB0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BD3DC2122AB6EC2F008E3DB0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				BD3DC2162AB6EC48008E3DB0 /* PracticeViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BD3DC2132AB6EC35008E3DB0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BD3DC2142AB6EC3E008E3DB0 /* PracticeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		BDD07EBA2AB5F490001A3CAD = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +218,7 @@
 		BDD07EDD2AB5F4AB001A3CAD /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				BD3DC2102AB6EC0E008E3DB0 /* Practice */,
 				BD3DC1F82AB63CE9008E3DB0 /* Chatbot */,
 				BDD07EDE2AB5F4B2001A3CAD /* Common */,
 				BDD07EE12AB5F4CB001A3CAD /* Learn */,
@@ -401,6 +439,7 @@
 				BDD07EF22AB5F537001A3CAD /* LearnView.swift in Sources */,
 				BD3DC1F72AB63868008E3DB0 /* Mod3DModel.swift in Sources */,
 				BD3DC20F2AB68D69008E3DB0 /* ChatbotViewModel.swift in Sources */,
+				BD3DC2152AB6EC3E008E3DB0 /* PracticeView.swift in Sources */,
 				BDD07EF02AB5F531001A3CAD /* AboutView.swift in Sources */,
 				BDD07ECD2AB5F490001A3CAD /* ContentView.swift in Sources */,
 				BDD07F022AB6183C001A3CAD /* Language.swift in Sources */,
@@ -410,6 +449,7 @@
 				BDD07ECB2AB5F490001A3CAD /* EduSphereApp.swift in Sources */,
 				BD3DC1FD2AB63D1F008E3DB0 /* ChatbotView.swift in Sources */,
 				BDD07ECF2AB5F490001A3CAD /* ImmersiveView.swift in Sources */,
+				BD3DC2172AB6EC48008E3DB0 /* PracticeViewModel.swift in Sources */,
 				BDD07EFE2AB61245001A3CAD /* AboutInfo.swift in Sources */,
 				BDD07F002AB6159C001A3CAD /* LanguageManager.swift in Sources */,
 				BD3DC2032AB660D3008E3DB0 /* WordDecoder.swift in Sources */,

@@ -6,10 +6,11 @@
 //
 
 import Foundation
-
+/*
 func decodeUnicodeString(_ unicodeString: String) -> String? {
     let scanner = Scanner(string: unicodeString)
     var result: UInt32 = 0
     
     return String(UnicodeScalar(result)!)
 }
+*/

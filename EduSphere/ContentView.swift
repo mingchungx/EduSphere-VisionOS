@@ -59,6 +59,11 @@ struct ContentView: View {
                     Label("Learn", systemImage: "graduationcap")
                 }
             
+            PracticeView()
+                .tabItem {
+                    Label("Practice", systemImage: "camera.viewfinder")
+                }
+            
             ChatbotView()
                 .tabItem {
                     Label("Chatbot", systemImage: "text.bubble")

@@ -31,10 +31,8 @@ struct ChatbotView: View {
     func alternatingView(for index: Int) -> some View {
         Group {
             if index % 2 == 0 {
-                // Display something different for even-indexed elements
                 userMessage(query: chatbotViewModel.messages[index])
             } else {
-                // Display something different for odd-indexed elements
                 botMessage(response: chatbotViewModel.messages[index])
             }
         }
@@ -44,7 +42,6 @@ struct ChatbotView: View {
         HStack {
             TextField("Send a message...", text: $text)
                 .foregroundStyle(Color.white)
-                .opacity(1)
             Button {
                 Task {
                     await chatbotViewModel.respond(msg: text)
