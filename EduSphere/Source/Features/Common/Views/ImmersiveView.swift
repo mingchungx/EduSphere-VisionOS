@@ -16,7 +16,7 @@ struct ImmersiveView: View {
             guard let url = Bundle.main.url(forResource: Immersion.state, withExtension: "jpg"),
                               let resource = try? await TextureResource(contentsOf: url) else {
                 // If the asset isn't available, something is wrong with the app.
-                fatalError("Unable to load starfield texture.")
+                fatalError("Unable to load texture.")
             }
             var material = UnlitMaterial()
             material.color = .init(texture: .init(resource))

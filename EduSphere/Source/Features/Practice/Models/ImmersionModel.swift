@@ -21,10 +21,10 @@ extension Immersion {
     }()
     
     static let immersions: [Immersion] = {[
-        Immersion(missingWord: "space", assetName: "StarfieldScene", sentence: "I am in ___."), // I am in SPACE.
-        Immersion(missingWord: "dock", assetName: "DockScene", sentence: "I am on a ___"), // I am on a DOCK.
-        Immersion(missingWord: "desert", assetName: "DesertScene", sentence: "It is too hot, because this is the ___."), // It is too hot, because this is the DESERT.
+        Immersion(missingWord: "space", assetName: "StarfieldScene", sentence: "I am floating in ___."), // I am in SPACE.
+        Immersion(missingWord: "dock", assetName: "DockScene", sentence: "I am on a ___, next to the water."), // I am on a DOCK.
         Immersion(missingWord: "church", assetName: "ChurchScene", sentence: "Be quiet, we are in a ___."), // Be quiet, we are in a CHURCH.
-        Immersion(missingWord: "park", assetName: "ParkScene", sentence: "The weather is nice at the ___.")//, // The weather is nice at the PARK.
+        Immersion(missingWord: "park", assetName: "ParkScene", sentence: "The weather is nice at the ___."), // The weather is nice at the PARK.
+        Immersion(missingWord: "living room", assetName: "LivingRoomScene", sentence: "The ___ is very comfortable.") // The LIVING ROOM is very comfortable.
     ]}()
 }
