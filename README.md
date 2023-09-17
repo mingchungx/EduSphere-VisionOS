@@ -20,7 +20,10 @@ git clone https://github.com/mingchungx/EduSphere-VisionOS.git
 ## Authors
 
 Mingchung Xia (University of Waterloo)
+
 Luke Wang (McGill University)
+
 Ruixin Dai (Sheridan College)
+
 Evin Li (The University of British Columbia)
 
