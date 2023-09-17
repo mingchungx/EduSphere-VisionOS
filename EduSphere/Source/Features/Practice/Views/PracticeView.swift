@@ -64,15 +64,7 @@ struct PracticeView: View {
             Spacer()
             Button {
                 Task {
-                    showImmersiveSpace = false
-                    await practiceViewModel.setNextImmersion(
-                        src: "english",
-                        dest: languageManager.language.lowercased()
-                    )
-                    text = ""
-                    Immersion.state = practiceViewModel.currentImmersion.assetName
-                    debugPrint(Immersion.state)
-                    showImmersiveSpace = true
+                    await showNext()
                 }
             } label: {
                 Image(systemName: "arrow.counterclockwise")
@@ -97,10 +89,14 @@ extension PracticeView {
             TextField("Fill in the blank...", text: $text)
                 .foregroundStyle(Color.white)
                 .onSubmit {
-                    submitAns()
+                    Task {
+                        await submitAns()
+                    }
                 }
             Button {
-                submitAns()
+                Task {
+                    await submitAns()
+                }
             } label: {
                 Image(systemName: "rectangle.and.pencil.and.ellipsis")
             }
@@ -121,14 +117,28 @@ extension PracticeView {
         
     }
     
-    private func submitAns() {
+    func showNext() async {
+        showImmersiveSpace = false
+        await practiceViewModel.setNextImmersion(
+            src: "english",
+            dest: languageManager.language.lowercased()
+        )
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            text = ""
+            Immersion.state = practiceViewModel.currentImmersion.assetName
+            debugPrint(Immersion.state)
+            showImmersiveSpace = true
+        }
+    }
+    
+    private func submitAns() async {
         if practiceViewModel.checkCorrect(
             input: text,
             ans: practiceViewModel.currentImmersion.missingWord
         ) {
-            
+            await showNext()
         } else {
-            
+            // Alter user it was wrong
         }
     }
 }

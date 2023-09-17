@@ -59,7 +59,7 @@ final class PracticeViewModel: ObservableObject {
     }
     
     func checkCorrect(input: String, ans: String) -> Bool {
-        return input == ans
+        return input.lowercased() == ans.lowercased()
     }
     
     func getNextPosition(index: Int) -> Int {
