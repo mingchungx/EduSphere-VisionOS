@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ChatbotView: View {
     @State private var text: String = ""
-    @State private var loading: Bool = false
     
     @ObservedObject private var chatbotViewModel = ChatbotViewModel()
     
@@ -48,17 +47,11 @@ struct ChatbotView: View {
                 .opacity(1)
             Button {
                 Task {
-                    loading.toggle()
                     await chatbotViewModel.respond(msg: text)
                     text = ""
-                    loading.toggle()
                 }
             } label: {
-                if loading {
-                    ProgressView()
-                } else {
-                    Image(systemName: "paperplane.fill")
-                }
+                Image(systemName: "paperplane.fill")
             }
         }
         .padding()
