@@ -20,7 +20,6 @@
 		BD3DC2192AB70717008E3DB0 /* DockScene.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BD3DC2182AB70717008E3DB0 /* DockScene.jpg */; };
 		BD3DC21B2AB70783008E3DB0 /* ChurchScene.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BD3DC21A2AB70783008E3DB0 /* ChurchScene.jpg */; };
 		BD3DC21D2AB707D9008E3DB0 /* LivingRoomScene.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BD3DC21C2AB707D8008E3DB0 /* LivingRoomScene.jpg */; };
-		BD3DC2252AB70B5A008E3DB0 /* BridgeScene.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BD3DC2242AB70B5A008E3DB0 /* BridgeScene.jpg */; };
 		BDD07EC92AB5F490001A3CAD /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = BDD07EC82AB5F490001A3CAD /* RealityKitContent */; };
 		BDD07ECB2AB5F490001A3CAD /* EduSphereApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD07ECA2AB5F490001A3CAD /* EduSphereApp.swift */; };
 		BDD07ECD2AB5F490001A3CAD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD07ECC2AB5F490001A3CAD /* ContentView.swift */; };
@@ -54,7 +53,6 @@
 		BD3DC2182AB70717008E3DB0 /* DockScene.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DockScene.jpg; sourceTree = "<group>"; };
 		BD3DC21A2AB70783008E3DB0 /* ChurchScene.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ChurchScene.jpg; sourceTree = "<group>"; };
 		BD3DC21C2AB707D8008E3DB0 /* LivingRoomScene.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LivingRoomScene.jpg; sourceTree = "<group>"; };
-		BD3DC2242AB70B5A008E3DB0 /* BridgeScene.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BridgeScene.jpg; sourceTree = "<group>"; };
 		BDD07EC32AB5F490001A3CAD /* EduSphere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EduSphere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD07EC72AB5F490001A3CAD /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		BDD07ECA2AB5F490001A3CAD /* EduSphereApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EduSphereApp.swift; sourceTree = "<group>"; };
@@ -346,7 +344,6 @@
 				BDD07EF62AB5FA17001A3CAD /* Chair.usdz */,
 				BDD07EF42AB5F953001A3CAD /* StarfieldScene.jpg */,
 				BD3DC2182AB70717008E3DB0 /* DockScene.jpg */,
-				BD3DC2242AB70B5A008E3DB0 /* BridgeScene.jpg */,
 				BD3DC21A2AB70783008E3DB0 /* ChurchScene.jpg */,
 				BD3DC20C2AB67E75008E3DB0 /* ParkScene.jpg */,
 				BD3DC21C2AB707D8008E3DB0 /* LivingRoomScene.jpg */,
@@ -427,7 +424,6 @@
 				BDD07EF72AB5FA17001A3CAD /* Chair.usdz in Resources */,
 				BDD07ED62AB5F492001A3CAD /* Preview Assets.xcassets in Resources */,
 				BDD07EF52AB5F953001A3CAD /* StarfieldScene.jpg in Resources */,
-				BD3DC2252AB70B5A008E3DB0 /* BridgeScene.jpg in Resources */,
 				BD3DC21D2AB707D9008E3DB0 /* LivingRoomScene.jpg in Resources */,
 				BDD07ED12AB5F490001A3CAD /* ImageBasedLighting.skybox in Resources */,
 			);

@@ -26,6 +26,5 @@ extension Immersion {
         Immersion(missingWord: "church", assetName: "ChurchScene", sentence: "Be quiet, we are in a ___."), // Be quiet, we are in a CHURCH.
         Immersion(missingWord: "park", assetName: "ParkScene", sentence: "The weather is nice at the ___."), // The weather is nice at the PARK.
         Immersion(missingWord: "living room", assetName: "LivingRoomScene", sentence: "The ___ is very comfortable."), // The LIVING ROOM is very comfortable.
-        Immersion(missingWord: "bridge", assetName: "BridgeScene", sentence: "The ___ shines at night.") // The BRIDGE shines at night.
     ]}()
 }
