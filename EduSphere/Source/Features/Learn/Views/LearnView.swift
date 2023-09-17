@@ -16,8 +16,10 @@ struct LearnView: View {
     @State private var showImmersiveSpace = false
     @State private var immersiveSpaceIsShown = false
     @State private var showSceneSpace = false
+    @State private var loading = false
     
     @ObservedObject private var learnViewModel = LearnViewModel()
+    @ObservedObject private var languageManager = LanguageManager.shared
     
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
@@ -108,9 +110,13 @@ extension LearnView {
         VStack {
             gameHeader
             Spacer()
-            itemModel
-            Spacer()
-            translationChoices
+            if loading {
+                ProgressView()
+            } else {
+                translationChoices
+                Spacer()
+                itemModel
+            }
             Spacer()
             footer
             Spacer()
@@ -155,7 +161,7 @@ extension LearnView {
             model
                 .resizable()
                 .scaledToFit()
-                .frame(height: 300)
+                .frame(width: 300, height: 300)
         } placeholder: {
             ProgressView()
         }
@@ -163,12 +169,14 @@ extension LearnView {
     
     var translationChoices: some View {
         HStack(spacing: 70) {
-            ForEach(learnViewModel.choices) { c in
-                choice(
-                    text: c.text,
-                    correct: c.correct,
-                    color: c.color
-                )
+            ForEach(learnViewModel.choices.shuffled()) { c in
+                if !c.text.isEmpty {
+                    choice(
+                        text: c.text,
+                        correct: c.correct,
+                        color: c.color
+                    )
+                }
             }
         }
         .padding()
@@ -200,20 +208,23 @@ extension LearnView {
         } label: {
             Text(text)
         }
+        /*
         .background(
             color,
             in: RoundedRectangle(cornerRadius: 20)
         )
+         */
     }
 }
 
 // MARK: Functions
 extension LearnView {
     func updateView() async {
+        loading.toggle()
         await fetchRandomMod3D()
-        await fetchChoices()
-        
+        // await fetchChoices()
         debugPrint("Updated Game View")
+        loading.toggle()
     }
     
     func resetView() {
@@ -224,11 +235,10 @@ extension LearnView {
     }
     
     func fetchRandomMod3D() async {
-        try? await learnViewModel.fetchRandomMod3D()
-    }
-    
-    func fetchChoices() async {
-        try? await learnViewModel.fetchChoices()
+        try? await learnViewModel.fetchRandomMod3D(
+            src: "english",
+            dest: languageManager.language.lowercased()
+        )
     }
 }
 

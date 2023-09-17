@@ -10,6 +10,8 @@
 		BD3DC1F52AB633EF008E3DB0 /* ChoiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3DC1F42AB633EF008E3DB0 /* ChoiceModel.swift */; };
 		BD3DC1F72AB63868008E3DB0 /* Mod3DModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3DC1F62AB63868008E3DB0 /* Mod3DModel.swift */; };
 		BD3DC1FD2AB63D1F008E3DB0 /* ChatbotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3DC1FC2AB63D1F008E3DB0 /* ChatbotView.swift */; };
+		BD3DC2012AB65FF8008E3DB0 /* WordCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3DC2002AB65FF8008E3DB0 /* WordCollection.swift */; };
+		BD3DC2032AB660D3008E3DB0 /* WordDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3DC2022AB660D3008E3DB0 /* WordDecoder.swift */; };
 		BDD07EC92AB5F490001A3CAD /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = BDD07EC82AB5F490001A3CAD /* RealityKitContent */; };
 		BDD07ECB2AB5F490001A3CAD /* EduSphereApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD07ECA2AB5F490001A3CAD /* EduSphereApp.swift */; };
 		BDD07ECD2AB5F490001A3CAD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD07ECC2AB5F490001A3CAD /* ContentView.swift */; };
@@ -33,6 +35,8 @@
 		BD3DC1F62AB63868008E3DB0 /* Mod3DModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mod3DModel.swift; sourceTree = "<group>"; };
 		BD3DC1FC2AB63D1F008E3DB0 /* ChatbotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatbotView.swift; sourceTree = "<group>"; };
 		BD3DC1FE2AB643AC008E3DB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BD3DC2002AB65FF8008E3DB0 /* WordCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCollection.swift; sourceTree = "<group>"; };
+		BD3DC2022AB660D3008E3DB0 /* WordDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDecoder.swift; sourceTree = "<group>"; };
 		BDD07EC32AB5F490001A3CAD /* EduSphere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EduSphere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD07EC72AB5F490001A3CAD /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		BDD07ECA2AB5F490001A3CAD /* EduSphereApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EduSphereApp.swift; sourceTree = "<group>"; };
@@ -96,6 +100,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		BD3DC1FF2AB65FE9008E3DB0 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				BD3DC2002AB65FF8008E3DB0 /* WordCollection.swift */,
+				BD3DC2022AB660D3008E3DB0 /* WordDecoder.swift */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		BDD07EBA2AB5F490001A3CAD = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +159,7 @@
 		BDD07EDC2AB5F4A7001A3CAD /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				BD3DC1FF2AB65FE9008E3DB0 /* SupportingFiles */,
 				BDD07EDD2AB5F4AB001A3CAD /* Features */,
 			);
 			path = Source;
@@ -374,6 +388,8 @@
 				BDD07ECF2AB5F490001A3CAD /* ImmersiveView.swift in Sources */,
 				BDD07EFE2AB61245001A3CAD /* AboutInfo.swift in Sources */,
 				BDD07F002AB6159C001A3CAD /* LanguageManager.swift in Sources */,
+				BD3DC2032AB660D3008E3DB0 /* WordDecoder.swift in Sources */,
+				BD3DC2012AB65FF8008E3DB0 /* WordCollection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
